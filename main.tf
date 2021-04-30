@@ -4,16 +4,11 @@ resource "ibm_iam_access_group" "new_group" {
 }
 
 
-resource "ibm_iam_access_group_policy" "satellite" {
-  access_group_id = ibm_iam_access_group.satellite.id
-  roles           = [var.roles]
+resource "ibm_iam_access_group_policy" "new_group_policy" {
+  access_group_id = ibm_iam_access_group.new_group.id
+  roles           = var.roles
 
   resources {
     service = var.service
   }
 }
-
-
-
-
-
