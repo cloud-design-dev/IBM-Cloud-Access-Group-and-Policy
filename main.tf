@@ -12,3 +12,8 @@ resource "ibm_iam_access_group_policy" "new_group_policy" {
     service = var.service
   }
 }
+
+resource "ibm_iam_access_group_members" "new_group_member" {
+  access_group_id = ibm_iam_access_group.new_group.id
+  ibm_ids         = var.users
+}
